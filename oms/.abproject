@@ -1,0 +1,45 @@
+{
+  "ProjectName": "oms",
+  "ProjectGuid": "4bd5858c-288d-4b56-aa3a-95838222cf3d",
+  "projectVersion": 1,
+  "AppIdentifier": "com.telerik.oms",
+  "DisplayName": "oms",
+  "Author": "",
+  "Description": "oms",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "FrameworkVersion": "3.7.0",
+  "AndroidPermissions": [
+    "android.permission.INTERNET"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "false",
+  "iOSStatusBarStyle": "Default",
+  "Framework": "Cordova",
+  "WP8TileTitle": "",
+  "WP8Publisher": "",
+  "WP8Capabilities": [
+    "ID_CAP_NETWORKING",
+    "ID_CAP_WEBBROWSERCOMPONENT"
+  ],
+  "WP8Requirements": [],
+  "WP8PublisherID": "{c57420fb-b254-4a6e-a9df-e2a356a52f29}",
+  "WP8ProductID": "{bdb11954-ab4e-4ae7-b393-5c58c272ea72}",
+  "WPSdk": "8.0",
+  "WP8PackageIdentityName": "1234Telerik.oms",
+  "WP8WindowsPublisherName": "CN=Telerik",
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ]
+}
