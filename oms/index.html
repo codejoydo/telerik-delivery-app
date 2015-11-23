@@ -44,36 +44,17 @@
     </div>
     <script>
         function requestSERVER(tt, id) {
-            //alert("requestSERVER");
-            //alert(tt);
-            //alert(id);
             $.get("https://www.rollbase.com/rest/api/setDataField?sessionId=" + tt + "&objName=Orders3&id=" + id + "&fieldName=Delivery_Status&value=Delivered&output=json");
-        }
-
-        // var sessionId;session
-        //        function callServer(){
-        //            alert('FFF');
-        //              alert(sessionId);
-        //            //$.get("https://www.rollbase.com/rest/api/setDataField?sessionId="+sessionId+"&objName=Orders3&id="+ID+"&fieldName=Delivery_Status&value=Delivered&output=json");
-        //                           
-        //        }
-        // 
-
-        function f() {
-            //alert("hello '+ID+'");
         }
 
         function callSERVER(element) {
             var tt = document.getElementById("SIDtemp").innerHTML;
-            //alert(tt);
-            //alert(element.id);
             requestSERVER(tt, element.id);
             var bbtn = document.getElementById(element.id);
             alert('Item Delivered');
             bbtn.innerHTML="Delivered";
            
         }
-
 
         function checkLogin(email, pass) {
             $.ajax({
@@ -85,59 +66,27 @@
                 },
                 success: function (data) {
                     var sessionId = data.sessionId;
-
                     var EEE = document.getElementById('FFORM');
                     EEE.parentNode.removeChild(EEE);
-
                     S = document.createElement('div');
                     S.setAttribute('style', 'display:none;');
                     S.setAttribute('id', 'SIDtemp');
-                    //document.write('<div id="SIDtemp" style="display: none;">' + sessionId + '</div>');
                     S.innerHTML = sessionId;
                     document.body.appendChild(S);
-
-                    //alert("Logged In successfully");
-
                     $.get("https://www.rollbase.com/rest/api/getPage?sessionId=" + sessionId + "&viewId=165450795&objNames=Delivery_Services&output=json",
                         function (data, status) {
-                            // var chutiya = document.getElementById("id1")
-
-                            //document.write("<table>");
-                            //document.write("<tr><td>Sno.</td>");
-                            //document.write("<tr><td>Addresss</td>");
-                            //document.write("<td>Amount</td></tr>");                            
                             for (var i = 1; i <= data.length; i++) {
-                                //   chutiya.innerHTML = "Name : " + data[i-1].Name + " Status : " + data[i-1].Status + " Length : " + data.length;
-                                //document.write("<tr><td>" + i + " : </td> ");
-                                //document.write("<p>" + data[i - 1].Billing_Address + "  ");
                                 P = document.createElement('div');
                                 P.setAttribute('class', 'para');
                                 P.innerHTML = "Customer Name : "+data[i-1].Cust_name+"<br/>"+"Address : "+data[i - 1].Billing_Address+"<br/>"+"Amount : "+data[i - 1].Amount+"<br/>"+"Deadline : "+data[i - 1].Deadline;
                                 document.body.appendChild(P);
-                                //  document.write("<td>" + namess[i-1] + "</td>"); 
-                                //document.write(data[i - 1].Amount + "  ");
-                                //document.write(data[i - 1].Delivery_Status + "  ");
-
-                                //document.write(data[i - 1].Deadline + "</p><br/>");
                                 var ID = data[i - 1].id;
-                                //var CODE = '$.get("https://www.rollbase.com/rest/api/setDataField?sessionId=' + sessionId + '&objName=Orders3&id=' + ID + '&fieldName=Delivery_Status&value=Delivered&output=json");';
-                                //$.get("https://www.rollbase.com/rest/api/setDataField?sessionId="+sessionId+"&objName=Orders3&id="+ID+"&fieldName=Delivery_Status&value=Delivered&output=json");
-                                //document.write('<script> function f'+ID+'(){ '+CODE+' alert("hello '+ID+'"); }<\/script>');
                                 B = document.createElement('button');
                                 B.setAttribute('id', ID);
                                 B.setAttribute('class', 'myButton');
                                 B.setAttribute('onclick', 'callSERVER(this)');
                                 B.innerHTML = data[i - 1].Delivery_Status;
                                 document.body.appendChild(B);
-                                //NL = document.createElement('br');
-                                //document.appendChild(NL);
-                                //document.write('<button id="' + ID + '" onclick="callSERVER(this)">click</button>');
-                                //document.write('<script> function f(){  alert("hello '+ID+'"); }<\/script>');
-                                //document.write('<script> function requestSERVER(tt,id) { alert("requestSERVER"); alert(tt); alert(id); $.get("https://www.rollbase.com/rest/api/setDataField?sessionId="+tt+"&objName=Orders3&id="+id+"&fieldName=Delivery_Status&value=Delivered&output=json");}<\/script>');
-                                //function requestSERVER(tt,id) { alert("requestSERVER"); alert(tt); alert(id); $.get("https://www.rollbase.com/rest/api/setDataField?sessionId="+tt+"&objName=Orders3&id="+id+"&fieldName=Delivery_Status&value=Delivered&output=json");}
-
-                                //document.body.append('<script> function callSERVER(element){  var tt = document.getElementById("SIDtemp").innerHTML; alert(tt); alert(element.id); requestSERVER(tt,element.id);}<\/script>');
-                                //document.write(CODE);
                             }
                         });
                 }
